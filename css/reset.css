@@ -1,0 +1,33 @@
+body, p,span, ul, ul li{
+	margin: 0;
+	padding:0; 
+}
+
+ul li{
+	list-style: none;
+	display: inline-block;
+}
+
+.m-pr{
+	position: relative;
+}
+
+.m-fr{
+	float: left;
+}
+
+.m-fr{
+	float: right;
+}
+
+.clearfix{
+	content: '.';
+	height: 0;
+	overflow: hidden;
+	clear: both;
+	display: none;
+}
+
+.hide{
+	display: none;
+}

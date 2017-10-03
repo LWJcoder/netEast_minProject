@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主页</title>
+	<meta name="viewport" content="width=device-width, initial-scale = 1.0, user-scalable = false">
+	<link href="./css/style.css"  rel="stylesheet" />
+	<link href="./css/slider.css"  rel="stylesheet" >
+	<link href="./css/reset.css"  rel="stylesheet" />
+	<link href="./css/modal.css"  rel="stylesheet" />
+</head>
+<body class="body">
+	<div id="login"></div>
+	<div class="m-header">
+	<!-- 提醒条 -->
+		<div class="m-adTxt" id="remindTxt">
+			<span class="m-adCon"> 网易云微专业，帮助你掌握专业技能...... <a href="#">立即查看&gt; </a> </span>
+
+			<span class="m-close" onclick="noRemind()"><i class="xP"></i><span >不再提醒</span></span>
+		</div>
+
+		<div class="m-nav">
+			<div class="m-navLeft">
+			<!-- 头部 -->
+				<span class="edu">
+						<i class="m-eduImg"></i> <span class="green m-line">|</span>
+						<span>  网易教育产品部</span>
+					</span>
+
+					<div class="m-navSubs" id="m-subscri" onclick="watchClick()"><i class="subImg"></i>关注</div>
+
+					<span class="m-fens">粉丝&nbsp; <span class="m-fenNum"> 45</span></span>
+
+				
+					<ul class="m-cList">
+						<li><a href="http://open.163.com/">网易公开课</a></li>
+						<li><a href="http://study.163.com/">网易云课堂</a></li>
+						<li><a href="http://www.icourse163.org/">中国大学MOOC</a></li>
+						<li><i class="m-searchIcon"></i></li>
+					</ul>
+				
+							
+
+			</div>
+			</div>
+		</div>
+		<!-- 轮播图 -->
+		<div class="banner">
+			<div id="bannerBody"></div>
+				<div class="m-banner">
+					<ul class="m-cursor">
+						<li class="prev"><</li>
+						<li class="cursor">1</li>
+						<li class="cursor">2</li>
+						<li class="cursor">3</li>
+						<li class="next">></li>
+					</ul>
+				</div>
+		</div>
+
+		
+
+		<div class="m-info">
+		
+		
+			<div class="info-content">
+				<div class="left"><i class="ico-1"></i></div>
+				<div class="right">
+					<span>网易公开课</span>					
+						<p  class="in-con">
+								推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
+						</p>								
+						<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
+				
+				 </div>
+			</div>
+
+
+			<!-- 图片展示 -->
+			<div class="info-content">
+				<div class="left"><i class="ico-2"></i></div>
+				<div class="right">
+					<span>网易公开课</span>					
+						<p  class="in-con">
+								推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
+						</p>			
+					
+						<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
+				
+				 </div>
+			</div>
+
+			<!-- 图片展示 -->
+			<div class="info-content">
+				<div class="left"><i class="ico-3"></i></div>
+				<div class="right">
+					<span>网易公开课</span>					
+						<p  class="in-con">
+								推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
+						</p>			
+					
+						<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
+				
+				 </div>
+			</div>
+
+		</div>
+
+			<!-- 图片展示 -->
+		<div>
+			<ul  class="m-imgList">
+				<li><img src="./imgs/i1.jpg"></li>
+				<li><img src="./imgs/i1.jpg"></li>
+				<li><img src="./imgs/i1.jpg"></li>
+				<li><img src="./imgs/i1.jpg"></li>
+				<li><img src="./imgs/i1.jpg"></li>
+
+			</ul>
+		 </div>
+
+
+		 <!-- 课程列表 -->
+		 <div class="m-courses">
+
+			<div class="m-cLeft">
+			<!-- 课程切换按钮 -->
+				<div class="m-courseTab">
+					<span class="m-tab  active" onclick="OptClick(10, 'tag1')"> 产品设计</span>
+					<span class="m-tab  " onclick="OptClick(20, 'tag2')">编程语言</span>
+		 		</div>
+
+		 		<div class="courses">
+		 			<!-- 课程列表 -->
+		 			<!-- <div class="m-cItem">
+		 			<a href="#">
+		 				<img class="m-cImg" src="./imgs/c1.jpg" alt="课程图片"></img>
+		 				<div class="m-cInfo">
+		 					<p class="cTitle">混音全揭秘混音全揭秘混音全揭秘混音全揭秘混音全揭秘混音全揭秘</p>
+		 					<p class="cAuthor">音频帮</p>
+		 					<p class="cBookNum"> <i></i>   520</p>
+		 					<p class="cPrice">￥88.00</p>
+		 				</div>
+		 					</a>
+		 			</div> -->
+
+		 		
+				<!-- 	<div class="m-cItem_hover">
+		 				<a href="#">
+		 				<div class="top">
+		 					<img class="m-hImg" src="./imgs/c1.jpg" alt="课程图片"></img>
+		 					<div class="m-hInfo">
+			 					<p class="hTitle">画画素描画画素描</p>
+			 					
+			 					<p class="hBookNum"> <i></i> <span class="studyNum">  520</span>人在学</p>
+			 					<p class="cAuthor">发布者:<span class="author">音频帮</span></p>
+			 					<p class="hSort">分类:<span class="sort">手绘设计</span></p>
+			 					
+		 					</div>
+		 				</div>
+		 				
+		 				<div class="bot">
+		 					<p class="intruduce">
+		 						生活中有很多美好的画面,为什么不用画画把它记录下来呢?生活中有很多美好的画面,为什么不用画画把它记录下来呢?
+		 					</p>
+		 				</div>
+		 				
+		 				</a>
+		 			</div> -->
+			<!-- 导航页号 -->
+			 <div class="navPage">		 	
+			 	<ol>
+			 		<li><span class="navBtn prev" >&lt;</span></li>
+			 		<li>1</li>
+			 		<li class="nav-active">2</li>
+			 		<li>3</li>
+			 		<li>4</li>
+			 		<li>5</li>
+			 		<li>6</li>
+			 		<li>7</li>
+			 		<li>8</li>
+			 		<li><span class="navBtn next">&gt;</span></li>
+			 	</ol>
+			 </div>
+			 </div>
+
+
+			</div>
+
+		 	<div class="m-cRight">
+		 		<!-- 机构介绍 -->
+				<div class="m-unitDes">
+					<div class="unitHead">
+						<span>机构介绍</span>
+					</div>
+					
+					<div class="m-unitVideo">
+						<span>围观下面的视频了解吧:</span>
+						<div class="uVideo">
+							<img src="./imgs/uVideo.jpg" >
+						</div>
+						
+						
+					</div>
+				</div>
+		 		<!-- 最热排行 -->
+				<div class="m-popularRank">
+					<div class="unitHead">
+						最热排行
+					</div>
+					<div class="m-rankList">
+						<div class="m-rankItem">
+							<div class="r-left">
+								<img src="./imgs/rank.jpg" alt="最热排行">
+							</div>
+							<div class="r-right">
+								<span class="r-head">
+									舞曲揭秘最强舞曲舞曲揭秘最强舞曲揭秘最强
+								</span>
+								<div class="r-userInfo">
+									<i></i>
+									<span>1002</span>
+								</div>
+							</div>
+						</div>
+						<div class="m-rankItem">
+							<div class="r-left">
+								<img src="./imgs/rank.jpg" alt="最热排行">
+							</div>
+							<div class="r-right">
+								<span class="r-head">
+									舞曲揭秘最强舞曲舞曲揭秘最强舞曲揭秘最强
+								</span>
+								<div class="r-userInfo">
+									<i></i>
+									<span>1002</span>
+								</div>
+							</div>
+						</div>
+						<div class="m-rankItem">
+							<div class="r-left">
+								<img src="./imgs/rank.jpg" alt="最热排行">
+							</div>
+							<div class="r-right">
+								<span class="r-head">
+									舞曲揭秘最强舞曲舞曲揭秘最强舞曲揭秘最强
+								</span>
+								<div class="r-userInfo">
+									<i></i>
+									<span>1002</span>
+								</div>
+							</div>
+						</div>
+						<div class="m-rankItem">
+							<div class="r-left">
+								<img src="./imgs/rank.jpg" alt="最热排行">
+							</div>
+							<div class="r-right">
+								<span class="r-head">
+									舞曲揭秘最强舞曲舞曲揭秘最强舞曲揭秘最强
+								</span>
+								<div class="r-userInfo">
+									<i></i>
+									<span>1002</span>
+								</div>
+							</div>
+						</div>
+				
+
+					</div>
+				</div>
+		 	 </div>
+	
+
+		 </div>
+
+		<footer class="m-footer">
+		
+			<!-- 网易信息 -->
+			<div class="netEastInfo">
+				<i></i>
+				<span class="green v-line">|</span>
+				<span class="green netEast"> &nbsp;网易教育产品部</span>
+				<div class="copyInfo">
+					<p class="copyr">
+					&copy;2014 icourse163.org 浙ICP备812-5123号-1					
+				</p>
+				<p class="copyr">
+					icourses.cn 京 备121-655号icourses.cn 京 备121-655号
+				</p>
+				</div>
+				
+			</div>
+			<div class="otherInfo">
+			<!-- 其他信息 -->
+				<div class="m-Links">
+					<p class="footerInfo">友情链接:</p>
+			
+						<p><a href="#">网易公开课</a></p>
+						<p><a href="#">网易云课堂</a></p>
+						<p><a href="#">中国大学MOOC</a></p>
+					
+				</div>
+
+				<div class="m-us">
+					<p class="footerInfo">我们:</p>
+					
+						<p><a href="#">关于</a></p>
+						<p><a href="#">联系</a></p>
+						<p><a href="#">关注</a><a href="#"><img width="25" height="20" src="./imgs/weibo.png" class="weibo"></i></a></p>
+					
+				</div>
+
+				<div class="m-more">
+					<p class="footerInfo">更多:</p>
+					
+						<p><a href="#">常见问题</a></p>
+						<p><a href="#">建议反馈</a></p>
+					
+				</div>
+			</div>		
+	
+		</footer>
+	<div class="pageArea"></div>
+	<script src="js/util.js"></script>
+	<script src="js/slider.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+		
+		var $ = function(selector){
+			return [].slice.call(document.querySelectorAll(selector));
+		}
+
+		var cursor = $('.m-cursor .cursor');
+		var prev = $('.m-cursor .prev')[0];
+		var next = $('.m-cursor .next')[0];
+
+
+
+		cursor.forEach(function (cursor, index){
+			cursor.addEventListener('click', function(){
+				slider.nav(index);
+			})
+		})
+
+		prev.addEventListener('click',function(){
+			slider.prev();
+		});
+
+		next.addEventListener('click', function(){
+			slider.next();
+		});
+
+		var slider = new Slider({
+			     //视口容器
+  				  container: document.getElementById('bannerBody'),
+  				 // 图片列表
+				  images: [
+				    "./imgs/banner1.jpg",
+				    "./imgs/banner2.jpg",
+				    "./imgs/banner3.jpg",
+				  
+				  ],
+				  // animation:{
+				  // 	enter: 'fadeIn',
+				  // 	leave: 'fadeOut'
+				  // },
+
+				  // 是否允许拖拽
+				  drag: true
+		});
+
+		// 通过监听`nav`事件来完成额外逻辑
+	// --------------
+	slider.on('nav', function(ev){
+		var pageIndex = ev.pageIndex;
+		cursor.forEach(function(cursor, index){
+			if (index === pageIdnex){
+				cursor.className = 'z-active';
+			}else{
+				cursor.className = 'slide';
+			}
+		})
+	})
+
+// 3s 自动轮播
+	setInterval(function(){
+		slider.next();
+	}, 5000);
+
+	slider.nav(1)
+
+
+	</script>
+	<script type="text/javascript" src="./js/pageAction.js"></script>
+	<script src='./js/animate.js'></script>
+<script src='./js/modal.js'></script>
+<script type="text/javascript" src="./js/ajax.js"></script>
+<script>
+
+// var dom = '<div class="m-Login modal_body modal_wrap">\
+//       <span><i class="xP m-close"></i></span>\
+//       <form action="http://study.163.com/webDev/login.htm" method="post" autocomplete="false">\
+//         <fieldset>\
+//           <h3>登录网易云课堂</h3>\
+//         </fieldset>\
+//         <div class="inputArea">\
+//           <input type="text" class="m-logName" name="username" placeholder="账户" />\
+//           <br />\
+//           <input type="password" name="psw" minlength="6" placeholder="密码" />\
+//           <button type="submit"  class="loginBtn">登录</button>\
+//         </div>\
+//       </form>\
+//     </div>';
+var modal = new Modal({
+  // 1. 内容配置
+  content: "dom", //可传入节点和字符串
+  // 2. 动画设置
+  animation: {
+    enter: 'bounceIn',
+    leave: 'bounceOut'
+  }
+
+})
+
+
+document.querySelector('#m-subscri').addEventListener('click', function(){
+	var pa = document.getElementsByClassName('pageArea')[0];
+	pa.width = window.outerWidth;
+	pa.height = window.outerHeight;
+	pa.className += " lowBlack show";
+  modal.show(); 
+
+})
+</script>
+<script type="text/javascript">
+		
+		function watchClick(){
+			var xhr = new XMLHttpRequest();
+			if (!xhr)
+				xhr = new ActiveXObject("Microsoft.XMLHTTP");
+
+			xhr.onreadystatechange = function(){
+				if (xhr.status >= 200 && xhr.status <300 || xhr.status == 304){
+					// alert("success:" + xhr.responseText);
+				}else{
+						// alert("fail:"+xhr.status);
+					}
+					(xhr.status == 200) ? success(xhr.data): fail(xhr.data);
+
+				}
+				xhr.open("get","http://study.163.com/webDev/attention.htm");
+				xhr.send({});
+			}
+			
+		function OptClick (type,that){
+			var tags = document.getElementsByClassName("m-tab");
+			if (that == "tag1"){
+				_.addClass(tags[0],"active");
+				_.delClass(tags[1],"active");
+			}else{
+				_.addClass(tags[1],"active");
+				_.delClass(tags[0],"active");
+			}
+			getAllCourse(type);
+		}
+
+
+		function getAllCourse(type){
+			var xhr = new XMLHttpRequest();
+			if (!xhr){
+				 xhr = new ActiveXObject('Microsoft.XMLHTTP');
+				 if (!xhr){
+				 	xhr = new ActiveXObject("Mxxml2.XMLHTTP");
+				 	}
+				}
+			type = type || 10;
+			var data = {pageNo: 1,
+						psize: 12,
+						type: type};
+		
+
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState !== 4) {return;}
+				if (xhr.status >= 200 && xhr.status <300 || xhr.status == 304){
+					alert("success:" + xhr.responseText);
+				}else{
+						alert("fail:"+xhr.status);
+					}
+					(xhr.status == 200) ? success(data): fail(data);
+
+				}
+				xhr.open("get","http://study.163.com/webDev/couresByCategory.htm");
+				xhr.send(data);
+			//默认是产品设计
+			// ne.ajax({
+			// 	type:"get",
+			// 	url: "http://study.163.com /webDev/couresByCategory.htm",
+			// 	data: {	pageNo: 0,
+			// 			pSize: 20,
+			// 			type: type},
+			// 	success:function(data){
+
+			// 	}
+			// })
+			
+		}		//var self = this;
+
+
+	function login(){
+			
+				// if (method.toUpperCase() == 'POST'){
+				// 	url += "?"+ JSON.stringify(data);
+				// }
+				
+				var data = {};
+				var form = document.getElementById('loginForm');
+				data.userName = form.userName;
+				data.password = form.password;
+				
+				// ne.ajax({
+				// 	type:'get',
+				// 	data: data,
+				// 	url: "http://study.163.com/webDev/login.htm",
+				// 	success: function(data){
+
+				// 	}
+				// });
+				
+	}
+
+	function success(txt){
+		alert(JSON.stringify(txt));
+	}
+
+	function fail(txt){
+		alert("fail"+JSON.stringify(txt));
+	}
+
+	getAllCourse(10);
+</script>
+
+</body>
+</html>
