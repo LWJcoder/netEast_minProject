@@ -128,7 +128,7 @@
 					<span class="m-tab  " onclick="OptClick(20, 'tag2')">编程语言</span>
 		 		</div>
 
-		 		<div class="courses">
+		 		<div class="courses" id="courses">
 		 			<!-- 课程列表 -->
 		 				 		
 				<!-- 	<div class="m-cItem_hover">
@@ -194,7 +194,7 @@
 					<div class="unitHead">
 						最热排行
 					</div>
-					<div class="m-rankList">
+					<div class="m-rankList" id="hotList">
 					
 					</div>
 				</div>
@@ -389,7 +389,7 @@ var modal = new Modal({
 			getAllCourse(type);
 		}
 
-
+		//获取全部课程列表，并动态渲染到页面
 		function getAllCourse(type){
 			var ajax = new Ajax();
 
@@ -398,58 +398,48 @@ var modal = new Modal({
 						psize: 12,
 						type: type};
 		
-			ajax.get("http://study.163.com/webDev/couresByCategory.htm", data, function(data1){
+			ajax.get("http://study.163.com/webDev/hotcouresByCategory.htm", data, function(data1){
 					//console.log("all"+ JSON.stringify(data));
 					var list = document.getElementById('courses');
+					var temple = '';
 					var data = JSON.parse(data1);
-					for (let i = 0; i < data.pagination.pageSize; i++){
-						var parDiv = document.createElement("div");
-						parDiv.setAttribute('class', 'm-cItem');
-		
-						var imgItem = document.createElement('img'),
-							//linkItem = document.createElement('a'),
-							infoDiv = document.createElement('div'),
-							titleP = document.createElement('p'),
-							authorP = document.createElement('p'),
-							cagP = document.createElement('p');
-							bookNumP = document.createElement('p'),
-							priceP = document.createElement('p'),
-							desP = document.createElement('p');
-
-						linkItem.setAttribute('href', 'about: blank;');
-						imgItem.setAttribute('class','m-cImg');
-						imgItem.setAttribute('src', data.list[i].smallPhotoUrl);
-						infoDiv,setAttribute('class','m-cInfo');
-						titleP.setAttribute('class', 'cTitle');
-						authorP.setAttribute('class', 'cAuthor');
-						cagP.setAttribute('class','hide');
-						cagP.innerText = data.list[i].categoryName;
-						authorP.innerText = data.list[i].provider;
-						bookNumP.setAttribute('class', 'cBookNum');
-						bookNumP.innerText = data.list[i].learnerCount;
-						priceP.setAttribute('class','cPrice');
-						priceP.innerText = data.list[i].price;
-						desP.innerText(data.list[i].description);
-						desP.setAttribute('class', 'hide');
-
-						infoDiv.appendChild(desP);
-						infoDiv.appendChild(priceP);
-						infoDiv.appendChild(bookNumP);
-						infoDiv.appendChild(cagP);
-						infoDiv.appendChild(authorP);
-						infoDiv.appendChild(titleP);
-						parDiv.appendChild(imgItem);
-						parDiv.appendChild(infoDiv);
-
-						list.appendChild(parDiv);
-					alert("success:" + JSON.stringify(xhr.responseText));		
+					for (let i = 0; i < data.length; i++){
+						if (0<window.innerWidth < 1000){
+							 temple += '\
+								<div class="m-cItem">\
+				 					<a href="#">\
+						 				<img class="m-cImg" src="'+data[i].smallPhotoUrl+'" alt="" title="'+data[i].name+'"></img>\
+							 				<div class="m-cInfo">\
+							 					<p class="cTitle" title="'+data[i].name+'">'+data[i].name+'</p>\
+							 					<p class="cAuthor"><a href="http://study.163.com'+data[i].providerLink+'">'+data[i].provider+'</a></p>\
+							 					<p class="cBookNum"> <i></i> '+data[i].learnerCount+'</p>\
+							 					<p class="cPrice">￥'+data[i].price+'</p>\
+							 				</div>\
+						 				</a>\
+						 		</div>';
+						}else{
+							 temple += '\
+								<div class="m-cItem">\
+				 					<a href="#">\
+						 				<img class="m-cImg" src="'+data[i].bigPhotoUrl+'" alt=""></img>\
+							 				<div class="m-cInfo">\
+							 					<p class="cTitle" title="'+data[i].name+'">'+data[i].name+'</p>\
+							 					<p class="cAuthor"><a href="http://study.163.com'+data[i].providerLink+'">'+data[i].provider+'</a></p>\
+							 					<p class="cBookNum"> <i></i> '+data[i].learnerCount+'</p>\
+							 					<p class="cPrice">￥'+data[i].price+'</p>\
+							 				</div>\
+						 				</a>\
+						 		</div>';
+						}						 										
 				}
+				list.innerHTML = temple;
 			},function(txt,status){
 				fail(txt, status);
 			});										
 		}
 	getAllCourse(10);
 	 
+	//获取热门课程列表，并动态渲染到页面
 	function getHotList(){
 		var ajax = new Ajax();
 		ajax.get("http://study.163.com/webDev/hotcouresByCategory.htm",{}, function(data1){
@@ -457,40 +447,49 @@ var modal = new Modal({
 			console.log(data1);
 
 			var data = JSON.parse(data1);
+			var list = document.getElementById('hotList');
+			var temple = '';
+			//alert(window.innerWidth)
 				//Array.prototype.slice.call(data1);
 			//console.log(instanceof data == 'object array');
 			//console.log("hot: "+ JSON.stringify(data));
 			for (var i = data.length - 1; i >= 0; i--) {
-				var parDiv = document.createElement("div");
-				parDiv.setAttribute('class','m-rankItem');
-
-				var cDiv = document.createElement('div'),
-					cImg = document.createElement('img');
-					cDiv.setAttribute('class', 'r-left');
-					cImg.setAttribute('src',data[i].smallPhotoUrl);
-				var conDiv = document.createElement('div'),
-				conSpan = document.createElement('span'),
-				userDiv = document.createElement('div'),
-				i = document.createElement('i'),
-				numSpan = document.createElement('span');
-				//console.log("name: "+ JSON.stringify(data[i].name));
-				conDiv.setAttribute('class', 'r-right');
-				conSpan.setAttribute('class', 'r-head');
-				conSpan.innerText = data[i].name;
-				userDiv.setAttribute('class','r-userInfo');
-				numSpan.innerText = data[i].learnerCount;
-				userDiv.appendChild(i);
-				userDiv.appendChild(numSpan);
-				conDiv.appendChild(userDiv);
-				conDiv.appendChild(conSpan);
-				cDiv.appendChild(cImg);
-
-				parDiv.appendChild(cDiv);
-				parDiv.appendChild(conDiv);
-
-				listE.append(parDiv);
+				if (0 < Number(window.innerWidth) < 1000){
+					temple += '<div class="m-rankItem">\
+								<a href="#">\
+									<div class="r-left">\
+										<img src="'+data[i].smallPhotoUrl+'" alt="'+data[i].name+'">\
+									</div>\
+									<div class="r-right">\
+										<span class="r-head" title="'+data[i].name+'">\
+											'+data[i].name+'</span>\
+										<div class="r-userInfo">\
+											<i></i>\
+											<span>'+data[i].learnerCount+'</span>\
+										</div>\
+									</div>\
+								</a>\
+							</div>';
+				}else{
+					temple += '<div class="m-rankItem">\
+								<a href="#">\
+									<div class="r-left">\
+										<img src="'+data[i].bigPhotoUrl+'" alt="最热排行">\
+									</div>\
+									<div class="r-right">\
+										<span class="r-head">\
+											'+data[i].name+'</span>\
+										<div class="r-userInfo">\
+											<i></i>\
+											<span>'+data[i].learnerCount+'</span>\
+										</div>\
+									</div>\
+								</a>\
+							</div>';
+				}	
+		
 				}
-				
+				list.innerHTML = temple;
 			
 			
 		},function(txt,status){
