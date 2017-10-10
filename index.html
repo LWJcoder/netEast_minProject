@@ -11,7 +11,7 @@
 </head>
 <body class="body">
 	<div id="login"></div>
-	<div class="m-header">
+	<header class="m-header">
 	<!-- 提醒条 -->
 		<div class="m-adTxt" id="remindTxt">
 			<span class="m-adCon"> 网易云微专业，帮助你掌握专业技能...... <a href="#">立即查看&gt; </a> </span>
@@ -37,13 +37,12 @@
 						<li><a href="http://study.163.com/">网易云课堂</a></li>
 						<li><a href="http://www.icourse163.org/">中国大学MOOC</a></li>
 						<li><i class="m-searchIcon"></i></li>
-					</ul>
-				
-							
+					</ul>											
+			</div>
+			</div>
+		</header>
 
-			</div>
-			</div>
-		</div>
+		<content>
 		<!-- 轮播图 -->
 		<div class="banner">
 			<div id="bannerBody"></div>
@@ -131,19 +130,7 @@
 
 		 		<div class="courses">
 		 			<!-- 课程列表 -->
-		 			<!-- <div class="m-cItem">
-		 			<a href="#">
-		 				<img class="m-cImg" src="./imgs/c1.jpg" alt="课程图片"></img>
-		 				<div class="m-cInfo">
-		 					<p class="cTitle">混音全揭秘混音全揭秘混音全揭秘混音全揭秘混音全揭秘混音全揭秘</p>
-		 					<p class="cAuthor">音频帮</p>
-		 					<p class="cBookNum"> <i></i>   520</p>
-		 					<p class="cPrice">￥88.00</p>
-		 				</div>
-		 					</a>
-		 			</div> -->
-
-		 		
+		 				 		
 				<!-- 	<div class="m-cItem_hover">
 		 				<a href="#">
 		 				<div class="top">
@@ -186,7 +173,7 @@
 
 			</div>
 
-		 	<div class="m-cRight">
+		 	<aside class="m-cRight">
 		 		<!-- 机构介绍 -->
 				<div class="m-unitDes">
 					<div class="unitHead">
@@ -208,71 +195,14 @@
 						最热排行
 					</div>
 					<div class="m-rankList">
-						<div class="m-rankItem">
-							<div class="r-left">
-								<img src="./imgs/rank.jpg" alt="最热排行">
-							</div>
-							<div class="r-right">
-								<span class="r-head">
-									舞曲揭秘最强舞曲舞曲揭秘最强舞曲揭秘最强
-								</span>
-								<div class="r-userInfo">
-									<i></i>
-									<span>1002</span>
-								</div>
-							</div>
-						</div>
-						<div class="m-rankItem">
-							<div class="r-left">
-								<img src="./imgs/rank.jpg" alt="最热排行">
-							</div>
-							<div class="r-right">
-								<span class="r-head">
-									舞曲揭秘最强舞曲舞曲揭秘最强舞曲揭秘最强
-								</span>
-								<div class="r-userInfo">
-									<i></i>
-									<span>1002</span>
-								</div>
-							</div>
-						</div>
-						<div class="m-rankItem">
-							<div class="r-left">
-								<img src="./imgs/rank.jpg" alt="最热排行">
-							</div>
-							<div class="r-right">
-								<span class="r-head">
-									舞曲揭秘最强舞曲舞曲揭秘最强舞曲揭秘最强
-								</span>
-								<div class="r-userInfo">
-									<i></i>
-									<span>1002</span>
-								</div>
-							</div>
-						</div>
-						<div class="m-rankItem">
-							<div class="r-left">
-								<img src="./imgs/rank.jpg" alt="最热排行">
-							</div>
-							<div class="r-right">
-								<span class="r-head">
-									舞曲揭秘最强舞曲舞曲揭秘最强舞曲揭秘最强
-								</span>
-								<div class="r-userInfo">
-									<i></i>
-									<span>1002</span>
-								</div>
-							</div>
-						</div>
-				
-
+					
 					</div>
 				</div>
-		 	 </div>
+		 	 </aside>
 	
 
 		 </div>
-
+	</content>
 		<footer class="m-footer">
 		
 			<!-- 网易信息 -->
@@ -423,34 +353,29 @@ var modal = new Modal({
 })
 
 
-document.querySelector('#m-subscri').addEventListener('click', function(){
-	var pa = document.getElementsByClassName('pageArea')[0];
-	pa.width = window.outerWidth;
-	pa.height = window.outerHeight;
-	pa.className += " lowBlack show";
-  modal.show(); 
+// document.querySelector('#m-subscri').addEventListener('click', function(){
+// 	var pa = document.getElementsByClassName('pageArea')[0];
+// 	pa.width = window.outerWidth;
+// 	pa.height = window.outerHeight;
+// 	pa.className += " lowBlack show";
+//   modal.show(); 
 
-})
+// })
 </script>
 <script type="text/javascript">
 		
 		function watchClick(){
-			var xhr = new XMLHttpRequest();
-			if (!xhr)
-				xhr = new ActiveXObject("Microsoft.XMLHTTP");
-
-			xhr.onreadystatechange = function(){
-				if (xhr.status >= 200 && xhr.status <300 || xhr.status == 304){
-					// alert("success:" + xhr.responseText);
-				}else{
-						// alert("fail:"+xhr.status);
-					}
-					(xhr.status == 200) ? success(xhr.data): fail(xhr.data);
-
+			var ajax = new Ajax();
+			ajax.get("http://study.163.com/webDev/attention.htm", function(txt){
+				if (txt == 1){
+					//设置已关注cookie
+					var util = new util();
+					util.setCookie('attention', 1);
+					//window.cookie.attention = 1;
+					console.log("1")
 				}
-				xhr.open("get","http://study.163.com/webDev/attention.htm");
-				xhr.send({});
-			}
+			});
+		}
 			
 		function OptClick (type,that){
 			var tags = document.getElementsByClassName("m-tab");
@@ -466,65 +391,122 @@ document.querySelector('#m-subscri').addEventListener('click', function(){
 
 
 		function getAllCourse(type){
-			var xhr = new XMLHttpRequest();
-			if (!xhr){
-				 xhr = new ActiveXObject('Microsoft.XMLHTTP');
-				 if (!xhr){
-				 	xhr = new ActiveXObject("Mxxml2.XMLHTTP");
-				 	}
-				}
+			var ajax = new Ajax();
+
 			type = type || 10;
 			var data = {pageNo: 1,
 						psize: 12,
 						type: type};
 		
+			ajax.get("http://study.163.com/webDev/couresByCategory.htm", data, function(data1){
+					//console.log("all"+ JSON.stringify(data));
+					var list = document.getElementById('courses');
+					var data = JSON.parse(data1);
+					for (let i = 0; i < data.pagination.pageSize; i++){
+						var parDiv = document.createElement("div");
+						parDiv.setAttribute('class', 'm-cItem');
+		
+						var imgItem = document.createElement('img'),
+							//linkItem = document.createElement('a'),
+							infoDiv = document.createElement('div'),
+							titleP = document.createElement('p'),
+							authorP = document.createElement('p'),
+							cagP = document.createElement('p');
+							bookNumP = document.createElement('p'),
+							priceP = document.createElement('p'),
+							desP = document.createElement('p');
 
-			xhr.onreadystatechange = function(){
-				if (xhr.readyState !== 4) {return;}
-				if (xhr.status >= 200 && xhr.status <300 || xhr.status == 304){
-					alert("success:" + xhr.responseText);
-				}else{
-						alert("fail:"+xhr.status);
-					}
-					(xhr.status == 200) ? success(data): fail(data);
+						linkItem.setAttribute('href', 'about: blank;');
+						imgItem.setAttribute('class','m-cImg');
+						imgItem.setAttribute('src', data.list[i].smallPhotoUrl);
+						infoDiv,setAttribute('class','m-cInfo');
+						titleP.setAttribute('class', 'cTitle');
+						authorP.setAttribute('class', 'cAuthor');
+						cagP.setAttribute('class','hide');
+						cagP.innerText = data.list[i].categoryName;
+						authorP.innerText = data.list[i].provider;
+						bookNumP.setAttribute('class', 'cBookNum');
+						bookNumP.innerText = data.list[i].learnerCount;
+						priceP.setAttribute('class','cPrice');
+						priceP.innerText = data.list[i].price;
+						desP.innerText(data.list[i].description);
+						desP.setAttribute('class', 'hide');
 
+						infoDiv.appendChild(desP);
+						infoDiv.appendChild(priceP);
+						infoDiv.appendChild(bookNumP);
+						infoDiv.appendChild(cagP);
+						infoDiv.appendChild(authorP);
+						infoDiv.appendChild(titleP);
+						parDiv.appendChild(imgItem);
+						parDiv.appendChild(infoDiv);
+
+						list.appendChild(parDiv);
+					alert("success:" + JSON.stringify(xhr.responseText));		
 				}
-				xhr.open("get","http://study.163.com/webDev/couresByCategory.htm");
-				xhr.send(data);
-			//默认是产品设计
-			// ne.ajax({
-			// 	type:"get",
-			// 	url: "http://study.163.com /webDev/couresByCategory.htm",
-			// 	data: {	pageNo: 0,
-			// 			pSize: 20,
-			// 			type: type},
-			// 	success:function(data){
+			},function(txt,status){
+				fail(txt, status);
+			});										
+		}
+	getAllCourse(10);
+	 
+	function getHotList(){
+		var ajax = new Ajax();
+		ajax.get("http://study.163.com/webDev/hotcouresByCategory.htm",{}, function(data1){
+			var listE = document.getElementById('m-rankList');
+			console.log(data1);
 
-			// 	}
-			// })
-			
-		}		//var self = this;
+			var data = JSON.parse(data1);
+				//Array.prototype.slice.call(data1);
+			//console.log(instanceof data == 'object array');
+			//console.log("hot: "+ JSON.stringify(data));
+			for (var i = data.length - 1; i >= 0; i--) {
+				var parDiv = document.createElement("div");
+				parDiv.setAttribute('class','m-rankItem');
 
+				var cDiv = document.createElement('div'),
+					cImg = document.createElement('img');
+					cDiv.setAttribute('class', 'r-left');
+					cImg.setAttribute('src',data[i].smallPhotoUrl);
+				var conDiv = document.createElement('div'),
+				conSpan = document.createElement('span'),
+				userDiv = document.createElement('div'),
+				i = document.createElement('i'),
+				numSpan = document.createElement('span');
+				//console.log("name: "+ JSON.stringify(data[i].name));
+				conDiv.setAttribute('class', 'r-right');
+				conSpan.setAttribute('class', 'r-head');
+				conSpan.innerText = data[i].name;
+				userDiv.setAttribute('class','r-userInfo');
+				numSpan.innerText = data[i].learnerCount;
+				userDiv.appendChild(i);
+				userDiv.appendChild(numSpan);
+				conDiv.appendChild(userDiv);
+				conDiv.appendChild(conSpan);
+				cDiv.appendChild(cImg);
 
-	function login(){
-			
-				// if (method.toUpperCase() == 'POST'){
-				// 	url += "?"+ JSON.stringify(data);
-				// }
+				parDiv.appendChild(cDiv);
+				parDiv.appendChild(conDiv);
+
+				listE.append(parDiv);
+				}
 				
-				var data = {};
-				var form = document.getElementById('loginForm');
-				data.userName = form.userName;
-				data.password = form.password;
-				
-				// ne.ajax({
-				// 	type:'get',
-				// 	data: data,
-				// 	url: "http://study.163.com/webDev/login.htm",
-				// 	success: function(data){
+			
+			
+		},function(txt,status){
+				fail(txt, status);
+			})
+	}	
 
-				// 	}
-				// });
+	getHotList();
+	function login(){						
+		var data = {};
+		var form = document.getElementById('loginForm');
+		data.userName = form.userName;
+		data.password = form.password;
+		var ajax = new ajax();
+		ajax.get("")		
+				
 				
 	}
 
@@ -536,7 +518,7 @@ document.querySelector('#m-subscri').addEventListener('click', function(){
 		alert("fail"+JSON.stringify(txt));
 	}
 
-	getAllCourse(10);
+	//getAllCourse(10);
 </script>
 
 </body>

@@ -111,12 +111,19 @@ var util = (function(){
 			    return cookie;
 			},
 		//设置cookie
-		setCookie: function(name, value, days ){
-			var cookie = document.cookie;
-			var exp = (new Date()).getDate()+ days;
-			cookie = name+"="+ value +";expires="+exp+";";
+		setCookie: function(name, value, expires, path, domain, secure){
+			//function setCookie (name, value, expires, path, domain, secure) {
+		    var cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+		    if (expires)
+		        cookie += '; expires=' + expires.toGMTString();
+		    if (path)
+		        cookie += '; path=' + path;
+		    if (domain)
+		        cookie += '; domain=' + domain;
+		    if (secure)
+		        cookie += '; secure=' + secure;
+		    document.cookie = cookie;
 		}
-
 	}
 })();
 
