@@ -489,7 +489,7 @@ ol li {
 
 .m-rankItem{
 	margin-top: 18px;
-
+	display: block !important;
 }
 
 .r-left{

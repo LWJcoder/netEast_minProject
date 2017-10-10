@@ -23,7 +23,7 @@
   	_.extend(this, opt);
 
   	//节点及样式设置
-  	this.container = document.getElementById('bannerBody');
+  	this.container = this.container ||  document.getElementById('bannerBody');
   	this.container.style.overflow = 'hidden';
 
   	//组件节点
@@ -57,7 +57,7 @@
   	_layout: html2node(template),
 
   	//直接跳转到指定页
-  	 nav: function(pageIndex){
+  	 nav: function( pageIndex ){
 
   	 	this.pageIndex = pageIndex;
   	 	this.slideIndex = typeof this.slideIndex === 'number' ? this.slideIndex: (pageIndex+1)%3;
@@ -79,7 +79,7 @@
 
   	 //   // 单步移动
   	 _step(offset){
-  	 	this.pagfeIndex += offset;
+  	 	this.pageIndex += offset;
   	 	this.offsetAll += offset;
   	 	this.slideIndex += offset;
   	 	this.slider.style.transitionDuration = '.5s';

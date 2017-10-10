@@ -27,7 +27,8 @@
 						<span>  网易教育产品部</span>
 					</span>
 
-					<div class="m-navSubs" id="m-subscri" onclick="watchClick()"><i class="subImg"></i>关注</div>
+					<div class="m-navSubs" id="m-subscri" ><i class="subImg"></i>关注</div>
+					<!-- onclick="watchClick()" -->
 
 					<span class="m-fens">粉丝&nbsp; <span class="m-fenNum"> 45</span></span>
 
@@ -113,7 +114,6 @@
 				<li><img src="./imgs/i1.jpg"></li>
 				<li><img src="./imgs/i1.jpg"></li>
 				<li><img src="./imgs/i1.jpg"></li>
-
 			</ul>
 		 </div>
 
@@ -128,48 +128,21 @@
 					<span class="m-tab  " onclick="OptClick(20, 'tag2')">编程语言</span>
 		 		</div>
 
-		 		<div class="courses" id="courses">
+		 		<ul class="courses" id="courses">
 		 			<!-- 课程列表 -->
-		 				 		
-				<!-- 	<div class="m-cItem_hover">
-		 				<a href="#">
-		 				<div class="top">
-		 					<img class="m-hImg" src="./imgs/c1.jpg" alt="课程图片"></img>
-		 					<div class="m-hInfo">
-			 					<p class="hTitle">画画素描画画素描</p>
-			 					
-			 					<p class="hBookNum"> <i></i> <span class="studyNum">  520</span>人在学</p>
-			 					<p class="cAuthor">发布者:<span class="author">音频帮</span></p>
-			 					<p class="hSort">分类:<span class="sort">手绘设计</span></p>
-			 					
-		 					</div>
-		 				</div>
-		 				
-		 				<div class="bot">
-		 					<p class="intruduce">
-		 						生活中有很多美好的画面,为什么不用画画把它记录下来呢?生活中有很多美好的画面,为什么不用画画把它记录下来呢?
-		 					</p>
-		 				</div>
-		 				
-		 				</a>
-		 			</div> -->
+		
+			
+			 </ul>
 			<!-- 导航页号 -->
-			 <div class="navPage">		 	
-			 	<ol>
-			 		<li><span class="navBtn prev" >&lt;</span></li>
-			 		<li>1</li>
-			 		<li class="nav-active">2</li>
-			 		<li>3</li>
-			 		<li>4</li>
-			 		<li>5</li>
-			 		<li>6</li>
-			 		<li>7</li>
-			 		<li>8</li>
-			 		<li><span class="navBtn next">&gt;</span></li>
-			 	</ol>
-			 </div>
-			 </div>
-
+				 <div class="navPage">		 	
+				 	<ol id="navPage">
+				 		<li><span class="navBtn prev" >&lt;</span></li>
+				 		<li class="nav-active">1</li>
+				 		<li>2</li>
+				 		<li>3</li>
+				 		<li><span class="navBtn next">&gt;</span></li>
+				 	</ol>
+				 </div>
 
 			</div>
 
@@ -194,9 +167,8 @@
 					<div class="unitHead">
 						最热排行
 					</div>
-					<div class="m-rankList" id="hotList">
-					
-					</div>
+					<ul class="m-rankList" id="hotList">					
+					</ul>
 				</div>
 		 	 </aside>
 	
@@ -323,202 +295,164 @@
 	</script>
 	<script type="text/javascript" src="./js/pageAction.js"></script>
 	<script src='./js/animate.js'></script>
-<script src='./js/modal.js'></script>
-<script type="text/javascript" src="./js/ajax.js"></script>
-<script>
+	<script src='./js/modal.js'></script>
+	
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script src='./js/getCourse.js'></script>
+	<script>
+	function closeModal (){
+		modal.hide();
+	}
 
-// var dom = '<div class="m-Login modal_body modal_wrap">\
-//       <span><i class="xP m-close"></i></span>\
-//       <form action="http://study.163.com/webDev/login.htm" method="post" autocomplete="false">\
-//         <fieldset>\
-//           <h3>登录网易云课堂</h3>\
-//         </fieldset>\
-//         <div class="inputArea">\
-//           <input type="text" class="m-logName" name="username" placeholder="账户" />\
-//           <br />\
-//           <input type="password" name="psw" minlength="6" placeholder="密码" />\
-//           <button type="submit"  class="loginBtn">登录</button>\
-//         </div>\
-//       </form>\
-//     </div>';
-var modal = new Modal({
-  // 1. 内容配置
-  content: "dom", //可传入节点和字符串
-  // 2. 动画设置
-  animation: {
-    enter: 'bounceIn',
-    leave: 'bounceOut'
-  }
-
-})
-
-
-// document.querySelector('#m-subscri').addEventListener('click', function(){
-// 	var pa = document.getElementsByClassName('pageArea')[0];
-// 	pa.width = window.outerWidth;
-// 	pa.height = window.outerHeight;
-// 	pa.className += " lowBlack show";
-//   modal.show(); 
-
-// })
-</script>
-<script type="text/javascript">
-		
-		function watchClick(){
-			var ajax = new Ajax();
-			ajax.get("http://study.163.com/webDev/attention.htm", function(txt){
-				if (txt == 1){
-					//设置已关注cookie
-					var util = new util();
-					util.setCookie('attention', 1);
-					//window.cookie.attention = 1;
-					console.log("1")
-				}
-			});
-		}
-			
-		function OptClick (type,that){
-			var tags = document.getElementsByClassName("m-tab");
-			if (that == "tag1"){
-				_.addClass(tags[0],"active");
-				_.delClass(tags[1],"active");
-			}else{
-				_.addClass(tags[1],"active");
-				_.delClass(tags[0],"active");
-			}
-			getAllCourse(type);
-		}
-
-		//获取全部课程列表，并动态渲染到页面
-		function getAllCourse(type){
-			var ajax = new Ajax();
-
-			type = type || 10;
-			var data = {pageNo: 1,
-						psize: 12,
-						type: type};
-		
-			ajax.get("http://study.163.com/webDev/hotcouresByCategory.htm", data, function(data1){
-					//console.log("all"+ JSON.stringify(data));
-					var list = document.getElementById('courses');
-					var temple = '';
-					var data = JSON.parse(data1);
-					for (let i = 0; i < data.length; i++){
-						if (0<window.innerWidth < 1000){
-							 temple += '\
-								<div class="m-cItem">\
-				 					<a href="#">\
-						 				<img class="m-cImg" src="'+data[i].smallPhotoUrl+'" alt="" title="'+data[i].name+'"></img>\
-							 				<div class="m-cInfo">\
-							 					<p class="cTitle" title="'+data[i].name+'">'+data[i].name+'</p>\
-							 					<p class="cAuthor"><a href="http://study.163.com'+data[i].providerLink+'">'+data[i].provider+'</a></p>\
-							 					<p class="cBookNum"> <i></i> '+data[i].learnerCount+'</p>\
-							 					<p class="cPrice">￥'+data[i].price+'</p>\
-							 				</div>\
-						 				</a>\
-						 		</div>';
-						}else{
-							 temple += '\
-								<div class="m-cItem">\
-				 					<a href="#">\
-						 				<img class="m-cImg" src="'+data[i].bigPhotoUrl+'" alt=""></img>\
-							 				<div class="m-cInfo">\
-							 					<p class="cTitle" title="'+data[i].name+'">'+data[i].name+'</p>\
-							 					<p class="cAuthor"><a href="http://study.163.com'+data[i].providerLink+'">'+data[i].provider+'</a></p>\
-							 					<p class="cBookNum"> <i></i> '+data[i].learnerCount+'</p>\
-							 					<p class="cPrice">￥'+data[i].price+'</p>\
-							 				</div>\
-						 				</a>\
-						 		</div>';
-						}						 										
-				}
-				list.innerHTML = temple;
-			},function(txt,status){
-				fail(txt, status);
-			});										
-		}
-	getAllCourse(10);
-	 
-	//获取热门课程列表，并动态渲染到页面
-	function getHotList(){
-		var ajax = new Ajax();
-		ajax.get("http://study.163.com/webDev/hotcouresByCategory.htm",{}, function(data1){
-			var listE = document.getElementById('m-rankList');
-			console.log(data1);
-
-			var data = JSON.parse(data1);
-			var list = document.getElementById('hotList');
-			var temple = '';
-			//alert(window.innerWidth)
-				//Array.prototype.slice.call(data1);
-			//console.log(instanceof data == 'object array');
-			//console.log("hot: "+ JSON.stringify(data));
-			for (var i = data.length - 1; i >= 0; i--) {
-				if (0 < Number(window.innerWidth) < 1000){
-					temple += '<div class="m-rankItem">\
-								<a href="#">\
-									<div class="r-left">\
-										<img src="'+data[i].smallPhotoUrl+'" alt="'+data[i].name+'">\
-									</div>\
-									<div class="r-right">\
-										<span class="r-head" title="'+data[i].name+'">\
-											'+data[i].name+'</span>\
-										<div class="r-userInfo">\
-											<i></i>\
-											<span>'+data[i].learnerCount+'</span>\
-										</div>\
-									</div>\
-								</a>\
-							</div>';
-				}else{
-					temple += '<div class="m-rankItem">\
-								<a href="#">\
-									<div class="r-left">\
-										<img src="'+data[i].bigPhotoUrl+'" alt="最热排行">\
-									</div>\
-									<div class="r-right">\
-										<span class="r-head">\
-											'+data[i].name+'</span>\
-										<div class="r-userInfo">\
-											<i></i>\
-											<span>'+data[i].learnerCount+'</span>\
-										</div>\
-									</div>\
-								</a>\
-							</div>';
-				}	
-		
-				}
-				list.innerHTML = temple;
-			
-			
-		},function(txt,status){
-				fail(txt, status);
-			})
-	}	
-
-	getHotList();
+	//登录
 	function login(){						
-		var data = {};
-		var form = document.getElementById('loginForm');
-		data.userName = form.userName;
-		data.password = form.password;
-		var ajax = new ajax();
-		ajax.get("")		
+			var data = {};
 				
+			data.userName = document.getElementById('username').value;
+			data.password =  document.getElementById('password').value;
+			console.log("登录"+data.userName)
+			var ajax = new Ajax();
+			ajax.get("http://study.163.com/webDev/login.htm",data, function(data){
+				if (data == 1){
+					//登录成功
+					var tem = ' <div class="m-modal">\
+								  <div class="modal_align"></div>\
+								  <div class="modal_wrap">\
+								    <div class="modal_head">恭喜</div>\
+								    <div class="modal_body">登录成功</div>\
+								    <div class="modal_foot">\
+								      <a  href="#">确认</a>\
+								      <a  href="#">取消</a>\
+								    </div>\
+								  </div>\
+								</div>';
+					var modal = new Modal({
+						  // 1. 内容配置
+						  content: tem, //可传入节点和字符串
+						  // 2. 动画设置
+						  animation: {
+						    enter: 'bounceIn',
+						    leave: 'bounceOut'
+						  }
+						});	
+					modal.show();		
+
+				}else{
+						//登录失败
+					var temp = ' <div class="m-modal">\
+								  <div class="modal_align"></div>\
+								  <div class="modal_wrap">\
+								    <div class="modal_head">失败</div>\
+								    <div class="modal_body">登录失败，请重新输入</div>\
+								    <div class="modal_foot">\
+								      <a href="#">确认</a>\
+								      <a  href="#">取消</a>\
+								    </div>\
+								  </div>\
+								</div>';
+					var modal1 = new Modal({
+						  // 1. 内容配置
+						  content: temp, //可传入节点和字符串
+						  // 2. 动画设置
+						  animation: {
+						    enter: 'bounceIn',
+						    leave: 'bounceOut'
+						  }
+						});	
+					modal1.show();	
+				}
+			})		
+								
+		}
+	
+	// function watchClick(){
+	// 		var ajax = new Ajax();
+	// 		ajax.get("http://study.163.com/webDev/attention.htm",{}, function(txt){
+	// 			if (txt == 1){
+	// 			//设置已关注cookie
+	// 			var util = new util();
+	// 			etCookie('attention', 1);
+	// 			//window.cookie.attention = 1;
+	// 			console.log("1")
+	// 		}
+	// 	});
+	// }
+	
+
+ var template = 
+  '<div class="m-modal">\
+    <div class="modal_align">\
+    <div class="modal_wrap animated">\
+      <div class="modal_head">\
+      <span><i class="xP m-close" onclick="closeModal()"></i></span>\
+      <h3>登录网易云课堂</h3></div>\
+      <div class="modal_body">\
+      <form id="loginForm" action="http://study.163.com/webDev/login.htm" method="get" autocomplete="false">\
+        <div class="inputArea">\
+          <input type="text" class="m-logName" id="username" name="userName" placeholder="账户" />\
+          <br />\
+          <input type="password" class="psw" id="password" minlength="6" placeholder="密码" />\
+          <br />\
+          <button type="button"  class="loginBtn" onclick="login()">登录</button>\
+        </div>\
+      </form>\
+      </div>\
+    </div>\
+    </div>\
+  </div>';
+	var modal = new Modal({
+	  // 1. 内容配置
+	  content: template, //可传入节点和字符串
+	  // 2. 动画设置
+	  animation: {
+	    enter: 'bounceIn',
+	    leave: 'bounceOut'
+	  }
+	});
+
+
+	document.querySelector('#m-subscri').addEventListener('click', function(){
+		var pa = document.getElementsByClassName('pageArea')[0];
+		pa.width = window.outerWidth;
+		pa.height = window.outerHeight;
+		pa.className += " lowBlack show";
+	  	modal.show(); 
+	 });
+	</script>
+	<script type="text/javascript">
+			var remind = getCookie('reminded');
+			
+			if (remind == '1'){
+				var con =  document.getElementById('remindTxt');
+				con.className += 'hide';
+			}
+
+
 				
-	}
+			function OptClick (type,that){
+				var tags = document.getElementsByClassName("m-tab");
+				if (that == "tag1"){
+					_.addClass(tags[0],"active");
+					_.delClass(tags[1],"active");
+				}else{
+					_.addClass(tags[1],"active");
+					_.delClass(tags[0],"active");
+				}
+				getAllCourse(type);
+			}
 
-	function success(txt){
-		alert(JSON.stringify(txt));
-	}
+			
+		
 
-	function fail(txt){
-		alert("fail"+JSON.stringify(txt));
-	}
+		function success(txt){
+			alert(JSON.stringify(txt));
+		}
 
-	//getAllCourse(10);
-</script>
+		function fail(txt){
+			alert("fail"+JSON.stringify(txt));
+		}
 
+		//getAllCourse(10);
+	</script>
 </body>
 </html>

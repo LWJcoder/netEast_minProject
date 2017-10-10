@@ -26,14 +26,14 @@
     <div class="modal_align">\
     <div class="modal_wrap animated">\
       <div class="modal_head">\
-      <span><i class="xP m-close"></i></span>\
+      <span><i class="xP m-close" onclick="closeModal()"></i></span>\
       <h3>登录网易云课堂</h3></div>\
       <div class="modal_body">\
       <form id="loginForm" action="http://study.163.com/webDev/login.htm" method="get" autocomplete="false">\
         <div class="inputArea">\
-          <input type="text" class="m-logName" name="userName" placeholder="账户" />\
+          <input type="text" class="m-logName" id="username" name="userName" placeholder="账户" />\
           <br />\
-          <input type="password" class="psw" name="password" minlength="6" placeholder="密码" />\
+          <input type="password" class="psw" id="password" minlength="6" placeholder="密码" />\
           <br />\
           <button type="button"  class="loginBtn" onclick="login()">登录</button>\
         </div>\
