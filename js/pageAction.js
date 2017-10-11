@@ -81,6 +81,30 @@
 		
 	};
 
+	//导航
 	function nav2Page(index){
 		getAllCourse(10, index);
 	}
+
+	function getVideo (){
+		console.log("video")
+		var oDiv = '<video class="m-vStyle" autoplay controls name="video" src="http://mov.bn.netease.com/open-movie/nos/mp4/2014/12/30/SADQ86F5S_shd.mp4"></video>';
+
+		// var modal2 = new Modal({
+		// 				  // 1. 内容配置
+		// 				  content: oDiv, //可传入节点和字符串
+		// 				  // 2. 动画设置
+		// 				  animation: {
+		// 				    enter: 'bounceIn',
+		// 				    leave: 'bounceOut'
+		// 				  }
+		// 				});
+		// modal2.show();
+		//var d = document.getElementById("videoShow");
+		var dom = document.createElement("div");
+		dom.className = "m-parentV";
+		dom.innerHTML = oDiv;
+		document.body.appendChild(dom);
+	}
+
+	

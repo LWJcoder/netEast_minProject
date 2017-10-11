@@ -152,8 +152,11 @@ ol li {
 	height: 20px;
 	background: url(../imgs/x.png) no-repeat;
 	background-position: 0 -20px;
+	cursor: pointer;
 
 }
+
+
 
 .m-banner{
 	overflow: hidden;
@@ -553,6 +556,7 @@ ol li {
 .navPage{
 	float: right;
 	margin-bottom: 120px;
+	margin-right: 18px;
 }
 
 .navPage ol li{
@@ -564,10 +568,11 @@ ol li {
 }
 
 .navPage ol li:hover{
-
 	background-color: rgb(157,216,177);
 	color: white;
 	text-align: center;
+	width:38px;
+	height: 25px;
 }
 
 .m-footer{
@@ -740,4 +745,39 @@ ol li {
 	height: 28px;
 	line-height: 28px;
 	color: rgb(113,113,113);
+}
+
+.m-parentV{
+	width: 800px;
+	height: 450px;
+	position: fixed;
+
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	 -ms-transform: translate(-50%,-50%);
+	 z-index: 9999;
+}
+
+.m-vStyle {
+	width: 800px;
+	height: 450px;
+	position: absolute;
+}
+
+.m-cItem:hover, .m-rankItem:hover, .navPage li:hover{
+	-moz-transform:scale(1.2,1.1); 
+	-webkit-transform:scale(1.2,1.1); 
+	-o-transform:scale(1.2,1.1); 
+	transform:scale(1.2,1.1); 
+
+}
+
+.m-input{
+	width: 120px;
+	height: 25px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: -1px -1px rgba(45,40,40,0.3);
 }

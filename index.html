@@ -37,6 +37,7 @@
 						<li><a href="http://open.163.com/">网易公开课</a></li>
 						<li><a href="http://study.163.com/">网易云课堂</a></li>
 						<li><a href="http://www.icourse163.org/">中国大学MOOC</a></li>
+						<li><input type="text" maxlength="20" class="m-input hide" id="searInput"></li>
 						<li><i class="m-searchIcon"></i></li>
 					</ul>											
 			</div>
@@ -89,7 +90,7 @@
 				
 				 </div>
 			</div>
-
+			<!-- <div id="videoShow"></div> -->
 			<!-- 图片展示 -->
 			<div class="info-content">
 				<div class="left"><i class="ico-3"></i></div>
@@ -105,8 +106,8 @@
 			</div>
 
 		</div>
-
-			<!-- 图片展示 -->
+<!-- 图片展示 -->
+	<!-- 		
 		<div>
 			<ul  class="m-imgList">
 				<li><img src="./imgs/i1.jpg"></li>
@@ -115,7 +116,7 @@
 				<li><img src="./imgs/i1.jpg"></li>
 				<li><img src="./imgs/i1.jpg"></li>
 			</ul>
-		 </div>
+		 </div> -->
 
 
 		 <!-- 课程列表 -->
@@ -125,7 +126,7 @@
 			<!-- 课程切换按钮 -->
 				<div class="m-courseTab">
 					<span class="m-tab  active" onclick="OptClick(10, 'tag1')"> 产品设计</span>
-					<span class="m-tab  " onclick="OptClick(20, 'tag2')">编程语言</span>
+					<span class="m-tab" onclick="OptClick(20, 'tag2')">编程语言</span>
 		 		</div>
 
 		 		<ul class="courses" id="courses">
@@ -155,7 +156,7 @@
 					
 					<div class="m-unitVideo">
 						<span>围观下面的视频了解吧:</span>
-						<div class="uVideo">
+						<div class="uVideo" onclick="getVideo()">
 							<img src="./imgs/uVideo.jpg" >
 						</div>
 						
@@ -300,8 +301,45 @@
 	<script type="text/javascript" src="./js/ajax.js"></script>
 	<script src='./js/getCourse.js'></script>
 	<script>
+
+	var searchIco = document.getElementsByClassName('m-searchIcon')[0];
+	searchIco.onmouseover = function(){
+		var searInput = document.getElementById('searInput');
+		searInput.className = " m-input ";
+
+		searInput.onmouseover = function(){
+			searInput.className = " m-input ";
+		}
+
+		searInput.onmouseleave = function(){
+		setTimeout(function(){
+			if (!searInput.value){
+
+				searInput.className = " m-input hide ";
+			}
+	
+		}, 1500);
+		
+	}
+
+	}
+
+
+
+	searchIco.onmouseleave = function(){
+		setTimeout(function(){
+			var searInput = document.getElementById('searInput');
+			if (!searInput.value)
+				searInput.className = " m-input hide ";
+		}, 1500);
+		
+	}
+
 	function closeModal (){
 		modal.hide();
+		//去除灰色样式
+		var pa = document.getElementsByClassName("pageArea");
+		pa[0].className = " pageArea ";
 	}
 
 	//登录
@@ -379,11 +417,7 @@
 	// }
 	
 
- var template = 
-  '<div class="m-modal">\
-    <div class="modal_align">\
-    <div class="modal_wrap animated">\
-      <div class="modal_head">\
+ var content1 = '<div class="modal_head">\
       <span><i class="xP m-close" onclick="closeModal()"></i></span>\
       <h3>登录网易云课堂</h3></div>\
       <div class="modal_body">\
@@ -396,13 +430,10 @@
           <button type="button"  class="loginBtn" onclick="login()">登录</button>\
         </div>\
       </form>\
-      </div>\
-    </div>\
-    </div>\
-  </div>';
+      </div>';
 	var modal = new Modal({
 	  // 1. 内容配置
-	  content: template, //可传入节点和字符串
+	  content: content1, //可传入节点和字符串
 	  // 2. 动画设置
 	  animation: {
 	    enter: 'bounceIn',
@@ -432,13 +463,13 @@
 			function OptClick (type,that){
 				var tags = document.getElementsByClassName("m-tab");
 				if (that == "tag1"){
-					_.addClass(tags[0],"active");
-					_.delClass(tags[1],"active");
+					tags[0].className += " active";
+					tags[1].className = " m-tab";
 				}else{
-					_.addClass(tags[1],"active");
-					_.delClass(tags[0],"active");
+					tags[1].className += " active";
+					tags[0].className = " m-tab" ;
 				}
-				getAllCourse(type);
+				getAllCourse(type, 0);
 			}
 
 			

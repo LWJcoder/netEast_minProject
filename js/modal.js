@@ -1,4 +1,52 @@
 
+
+var emitter = {
+  // 注册事件
+  on: function(event, fn) {
+    var handles = this._handles || (this._handles = {}),
+      calls = handles[event] || (handles[event] = []);
+
+    // 找到对应名字的栈
+    calls.push(fn);
+
+    return this;
+  },
+  // 解绑事件
+  off: function(event, fn) {
+    if(!event || !this._handles) this._handles = {};
+    if(!this._handles) return;
+
+    var handles = this._handles , calls;
+
+    if (calls = handles[event]) {
+      if (!fn) {
+        handles[event] = [];
+        return this;
+      }
+      // 找到栈内对应listener 并移除
+      for (var i = 0, len = calls.length; i < len; i++) {
+        if (fn === calls[i]) {
+          calls.splice(i, 1);
+          return this;
+        }
+      }
+    }
+    return this;
+  },
+  // 触发事件
+  emit: function(event){
+    var args = [].slice.call(arguments, 1),
+      handles = this._handles, calls;
+
+    if (!handles || !(calls = handles[event])) return this;
+    // 触发所有对应名字的listeners
+    for (var i = 0, len = calls.length; i < len; i++) {
+      calls[i].apply(this, args)
+    }
+    return this;
+  }
+}
+
 !(function(_){
   // 帮助函数
   // ----------
@@ -20,12 +68,11 @@
     return o1
   }
 
-
  var template = 
   '<div class="m-modal">\
     <div class="modal_align">\
     <div class="modal_wrap animated">\
-      <div class="modal_head">\
+    <div class="modal_head">\
       <span><i class="xP m-close" onclick="closeModal()"></i></span>\
       <h3>登录网易云课堂</h3></div>\
       <div class="modal_body">\
@@ -38,14 +85,9 @@
           <button type="button"  class="loginBtn" onclick="login()">登录</button>\
         </div>\
       </form>\
-      </div>\
-    </div>\
-    </div>\
-  </div>';
+    </div>';
 
-  // Modal
-  // -------
-  var content;
+
 
   function Modal(options){
     options = options || {};
@@ -58,7 +100,7 @@
 
     // 将options 复制到 组件实例上
     extend(this, options);
-    content = options.content;
+
 
     this._initEvent();
 
@@ -81,7 +123,7 @@
 
       }else{
 
-         this.body.innerHTML = content;
+        this.body.innerHTML = content;
       }
     },
 
@@ -110,13 +152,14 @@
 
     // 初始化事件
     _initEvent: function(){
-
-      // this.container.querySelector('.confirm').addEventListener(
-      //   'click', this._onConfirm.bind(this)
-      // )
-      // this.container.querySelector('.cancel').addEventListener(
-      //   'click', this._onCancel.bind(this)
-      // )
+      if (this.container.querySelector('.confirm'))
+        this.container.querySelector('.confirm').addEventListener(
+          'click', this._onConfirm.bind(this)
+        )
+      if(this.container.querySelector('.cancel'))
+        this.container.querySelector('.cancel').addEventListener(
+          'click', this._onCancel.bind(this)
+        )
     },
 
     _onConfirm: function(){
@@ -133,7 +176,7 @@
 
 
   // 使用混入Mixin的方式使得Slider具有事件发射器功能
-  extend(Modal.prototype, _.emitter);
+  extend(Modal.prototype, emitter);
   
 
 
@@ -158,5 +201,5 @@
   }
 
 
-})(util);
+})();
 
