@@ -30,7 +30,8 @@
 						<span>  网易教育产品部</span>
 					</span>
 
-					<div class="m-navSubs" id="m-subscri" ><i class="subImg"></i>关注</div>
+					<div class="m-navSubs" id="m-subscri" ><i class="subImg" id="subImg"></i>关注</div>
+					<button id="watch"  onclick="watchClick()"></button>
 					<!-- onclick="watchClick()" -->
 
 					<span class="m-fens">粉丝&nbsp; <span class="m-fenNum"> 45</span></span>
@@ -47,138 +48,137 @@
 			</div>
 		</header>
 
-		<content>
-		<!-- 轮播图 -->
-		<div class="banner">
-			<div id="bannerBody"></div>
-				<div class="m-banner">
-					<ul class="m-cursor">
-						<li class="prev"><</li>
-						<li class="cursor">1</li>
-						<li class="cursor">2</li>
-						<li class="cursor">3</li>
-						<li class="next">></li>
-					</ul>
-				</div>
-		</div>
-
-		
-
-		<div class="m-info">
-		
-		
-			<div class="info-content">
-				<div class="left"><i class="ico-1"></i></div>
-				<div class="right">
-					<span>网易公开课</span>					
-						<p  class="in-con">
-								推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
-						</p>								
-						<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
-				
-				 </div>
-			</div>
-
-
-			<!-- 图片展示 -->
-			<div class="info-content">
-				<div class="left"><i class="ico-2"></i></div>
-				<div class="right">
-					<span>网易公开课</span>					
-						<p  class="in-con">
-								推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
-						</p>			
-					
-						<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
-				
-				 </div>
-			</div>
-			<!-- <div id="videoShow"></div> -->
-			<!-- 图片展示 -->
-			<div class="info-content">
-				<div class="left"><i class="ico-3"></i></div>
-				<div class="right">
-					<span>网易公开课</span>					
-						<p  class="in-con">
-								推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
-						</p>			
-					
-						<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
-				
-				 </div>
-			</div>
-
-		</div>
-<!-- 图片展示 -->
-	<!-- 		
-		<div>
-			<ul  class="m-imgList">
-				<li><img src="./imgs/i1.jpg"></li>
-				<li><img src="./imgs/i1.jpg"></li>
-				<li><img src="./imgs/i1.jpg"></li>
-				<li><img src="./imgs/i1.jpg"></li>
-				<li><img src="./imgs/i1.jpg"></li>
-			</ul>
-		 </div> -->
-
-
-		 <!-- 课程列表 -->
-		 <div class="m-courses">
-
-			<div class="m-cLeft">
-			<!-- 课程切换按钮 -->
-				<div class="m-courseTab">
-					<span class="m-tab  active" onclick="OptClick(10, 'tag1')"> 产品设计</span>
-					<span class="m-tab" onclick="OptClick(20, 'tag2')">编程语言</span>
-		 		</div>
-
-		 		<ul class="courses" id="courses">
-		 			<!-- 课程列表 -->
-		
-			
-			 </ul>
-			<!-- 导航页号 -->
-				 <div class="navPage">		 	
-				 	<ol id="navPage">
-				 		<li><span class="navBtn prev" >&lt;</span></li>
-				 		<li class="nav-active">1</li>
-				 		<li>2</li>
-				 		<li>3</li>
-				 		<li><span class="navBtn next">&gt;</span></li>
-				 	</ol>
-				 </div>
-
-			</div>
-
-		 	<aside class="m-cRight">
-		 		<!-- 机构介绍 -->
-				<div class="m-unitDes">
-					<div class="unitHead">
-						<span>机构介绍</span>
+	
+			<!-- 轮播图 -->
+			<div class="banner">
+				<div id="bannerBody"></div>
+					<div class="m-banner">
+						<ul class="m-cursor">
+							<li class="prev"><</li>
+							<li class="cursor">1</li>
+							<li class="cursor">2</li>
+							<li class="cursor">3</li>
+							<li class="next">></li>
+						</ul>
 					</div>
+			</div>
+
+			
+
+			<div class="m-info">
+			
+			
+				<div class="info-content">
+					<div class="left"><i class="ico-1"></i></div>
+					<div class="right">
+						<span>网易公开课</span>					
+							<p  class="in-con">
+									推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
+							</p>								
+							<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
 					
-					<div class="m-unitVideo">
-						<span>围观下面的视频了解吧:</span>
-						<div class="uVideo" onclick="getVideo()">
-							<img src="./imgs/uVideo.jpg" >
+					 </div>
+				</div>
+
+
+				<!-- 图片展示 -->
+				<div class="info-content">
+					<div class="left"><i class="ico-2"></i></div>
+					<div class="right">
+						<span>网易公开课</span>					
+							<p  class="in-con">
+									推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
+							</p>			
+						
+							<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
+					
+					 </div>
+				</div>
+				
+				<!-- 图片展示 -->
+				<div class="info-content">
+					<div class="left"><i class="ico-3"></i></div>
+					<div class="right">
+						<span>网易公开课</span>					
+							<p  class="in-con">
+									推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课，推出国内名校公开课。
+							</p>			
+						
+							<p class="in-footer"><a href="#" class="green">了解更多 ></a></p>
+					
+					 </div>
+				</div>
+
+			</div>
+	<!-- 图片展示 -->
+	<div class="m-showImg">
+		<ul class="imgs" id="imgList">
+			<li class="img"><img src="./imgs/i1.jpg" alt=""></li>
+			<li class="img"><img src="./imgs/i1.jpg" alt=""></li>
+			<li class="img"><img src="./imgs/i1.jpg" alt=""></li>
+			<li class="img"><img src="./imgs/i1.jpg" alt=""></li>
+			<li class="img"><img src="./imgs/i1.jpg" alt=""></li>
+		</ul>
+	</div>
+
+
+			 <!-- 课程列表 -->
+			 <div class="m-courses">
+
+				<div class="m-cLeft">
+				<!-- 课程切换按钮 -->
+					<div class="m-courseTab">
+						<span class="m-tab  active" onclick="OptClick(10, 'tag1')"> 产品设计</span>
+						<span class="m-tab" onclick="OptClick(20, 'tag2')">编程语言</span>
+			 		</div>
+
+			 		<ul class="courses" id="courses">
+			 			<!-- 课程列表 -->
+			
+				
+				 </ul>
+				<!-- 导航页号 -->
+					 <div class="navPage">		 	
+					 	<ol id="navPage">
+					 		<li><span class="navBtn prev" onclick="getAllCourse(type, "-", 12)">&lt;</span></li>
+					 		<li class="nav-active navBtn" >1</li>
+					 		<li class="navBtn" onclick="getAllCourse(type, 2, 12)">2</li>
+					 		<li class="navBtn" onclick="getAllCourse(type, 3, 12)">3</li>
+					 		<li><span class="navBtn next" onclick="getAllCourse(type, "+", 12)">&gt;</span></li>
+					 	</ol>
+					 </div>
+
+				</div>			 		
+			 </div>
+
+
+		 <aside class="m-cRight">
+			 		<!-- 机构介绍 -->
+					<div class="m-unitDes">
+						<div class="unitHead">
+							<span>机构介绍</span>
 						</div>
 						
-						
+						<div class="m-unitVideo">
+							<span>围观下面的视频了解吧:</span>
+							<div class="uVideo" onclick="getVideo()">
+								<img src="./imgs/uVideo.jpg" >
+							</div>
+							
+							
+						</div>
 					</div>
-				</div>
-		 		<!-- 最热排行 -->
-				<div class="m-popularRank">
-					<div class="unitHead">
-						最热排行
+			 		<!-- 最热排行 -->
+					<div class="m-popularRank">
+						<div class="unitHead">
+							<span>
+								最热排行
+							</span>
+						</div>
+						<ul class="m-rankList" id="hotList">					
+						</ul>
 					</div>
-					<ul class="m-rankList" id="hotList">					
-					</ul>
-				</div>
-		 	 </aside>
-	
-
-		 </div>
-	</content>
+			 	 </aside>
 		<footer class="m-footer">
 		
 			<!-- 网易信息 -->
@@ -223,15 +223,33 @@
 						<p><a href="#">建议反馈</a></p>
 					
 				</div>
+				
 			</div>		
 	
 		</footer>
 	<div class="pageArea"></div>
-	<script src="js/util.js"></script>
-	<script src="js/slider.js"></script>
-	<script src="js/index.js"></script>
-	<script>
-		
+	<script type="text/javascript" src="js/util.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	
+	<script src='./js/animate.js'></script>
+	<script src='./js/modal.js'></script>	
+	<script type="text/javascript" src="./js/ajax.js"></script>
+	<script src='./js/getCourse.js'></script>
+	<script type="text/javascript" src="./js/Cookie.js"></script>
+	<script type="text/javascript" src="./js/pageAction.js"></script>
+
+	<script type="text/javascript">
+	var myCookie = new Cookie();
+	function noRemind (){
+		var con =  document.getElementById('remindTxt');
+		//如果没有隐藏
+		 if ('hide'.indexOf(con.className)){
+		 	con.className += ' hide';
+		 }
+		 
+		 myCookie.setCookie('reminded', '1');
+	}
 		var $ = function(selector){
 			return [].slice.call(document.querySelectorAll(selector));
 		}
@@ -295,57 +313,77 @@
 
 	slider.nav(1)
 
-
-	</script>
-	<script type="text/javascript" src="./js/pageAction.js"></script>
-	<script src='./js/animate.js'></script>
-	<script src='./js/modal.js'></script>
-	
-	<script type="text/javascript" src="./js/ajax.js"></script>
-	<script src='./js/getCourse.js'></script>
-	<script>
-
-	var searchIco = document.getElementsByClassName('m-searchIcon')[0];
-	searchIco.onmouseover = function(){
-		var searInput = document.getElementById('searInput');
-		searInput.className = " m-input ";
-
-		searInput.onmouseover = function(){
-			searInput.className = " m-input ";
-		}
-
-		searInput.onmouseleave = function(){
-		setTimeout(function(){
-			if (!searInput.value){
-
-				searInput.className = " m-input hide ";
-			}
-	
-		}, 1500);
-		
-	}
-
-	}
-
-
-
-	searchIco.onmouseleave = function(){
-		setTimeout(function(){
-			var searInput = document.getElementById('searInput');
-			if (!searInput.value)
-				searInput.className = " m-input hide ";
-		}, 1500);
-		
-	}
-
-	function closeModal (){
-		modal.hide();
-		//去除灰色样式
+	function addGary(){
 		var pa = document.getElementsByClassName("pageArea");
-		pa[0].className = " pageArea ";
+		pa[0].className += " lowBlack";
+		console.log("add gary")
 	}
 
-	//登录
+	var loginModal  = null;
+	function watchClick(){
+		var myCookie = new Cookie();
+		var ajax = new Ajax();
+		var c = myCookie.getCookie();
+		console.log(c.attention)
+		if (1){//c.attention == '1'
+			var d = document.getElementsByClassName("m-navSubs")[0];
+			d.style.background = "rgb(232,232,232)";
+
+			var watchImg = document.getElementById("subImg");
+			watchImg.ClassName = "subedImg";
+			var ele = document.createElement("a");
+			ele.className = "cancle";
+			ele.href = "#";
+			ele.nodeValue = "取消";
+			d.appendChild(ele);
+
+			alert("你已经关注过了");
+		}else{
+			addGary();			
+			 var content1 = '<div class="modal_head">\
+			      <span><i class="xP m-close" onclick="closeModal()"></i></span>\
+			      <h3>登录网易云课堂</h3></div>\
+			      <div class="modal_body">\
+			      <form id="loginForm" action="http://study.163.com/webDev/login.htm" method="get" autocomplete="false">\
+			        <div class="inputArea">\
+			          <input type="text" class="m-logName" id="username" name="userName" placeholder="账户" />\
+			          <br />\
+			          <input type="password" class="psw" id="password" minlength="6" placeholder="密码" />\
+			          <br />\
+			          <button type="button"  class="loginBtn" onclick="login()">登录</button>\
+			        </div>\
+			      </form>\
+			      </div>';
+				loginModal = new Modal({
+				  // 1. 内容配置
+				  content: content1, //可传入节点和字符串
+				  // 2. 动画设置
+				  animation: {
+				    enter: 'bounceIn',
+				    leave: 'bounceOut'
+				  }
+				});
+
+				var watch = document.getElementById("m-subscri");
+			
+				loginModal.show();
+				
+				ajax.get("http://study.163.com/webDev/attention.htm",{}, function(txt){
+				if (txt == 1){
+				//设置已关注cookie
+				//2个小时之后过期
+				myCookie.setCookie('attention', "1");
+				//window.cookie.attention = 1;
+				console.log("setCookie")
+			}
+		},function(text){
+			alert(text);
+		});
+		}
+	
+	}
+
+//登录
 	function login(){						
 			var data = {};
 				
@@ -406,87 +444,16 @@
 								
 		}
 	
-	// function watchClick(){
-	// 		var ajax = new Ajax();
-	// 		ajax.get("http://study.163.com/webDev/attention.htm",{}, function(txt){
-	// 			if (txt == 1){
-	// 			//设置已关注cookie
-	// 			var util = new util();
-	// 			etCookie('attention', 1);
-	// 			//window.cookie.attention = 1;
-	// 			console.log("1")
-	// 		}
-	// 	});
-	// }
-	
-
- var content1 = '<div class="modal_head">\
-      <span><i class="xP m-close" onclick="closeModal()"></i></span>\
-      <h3>登录网易云课堂</h3></div>\
-      <div class="modal_body">\
-      <form id="loginForm" action="http://study.163.com/webDev/login.htm" method="get" autocomplete="false">\
-        <div class="inputArea">\
-          <input type="text" class="m-logName" id="username" name="userName" placeholder="账户" />\
-          <br />\
-          <input type="password" class="psw" id="password" minlength="6" placeholder="密码" />\
-          <br />\
-          <button type="button"  class="loginBtn" onclick="login()">登录</button>\
-        </div>\
-      </form>\
-      </div>';
-	var modal = new Modal({
-	  // 1. 内容配置
-	  content: content1, //可传入节点和字符串
-	  // 2. 动画设置
-	  animation: {
-	    enter: 'bounceIn',
-	    leave: 'bounceOut'
-	  }
-	});
+	function closeModal (){
+		var d = document.getElementsByClassName("m-modal")[0];
+		d.style.display = "none";
+		//  loginModal.hide();
+		//去除灰色样式
+		var pa = document.getElementsByClassName("pageArea");
+		pa[0].className = " pageArea ";
+	}
 
 
-	document.querySelector('#m-subscri').addEventListener('click', function(){
-		var pa = document.getElementsByClassName('pageArea')[0];
-		pa.width = window.outerWidth;
-		pa.height = window.outerHeight;
-		pa.className += " lowBlack show";
-	  	modal.show(); 
-	 });
-	</script>
-	<script type="text/javascript">
-			var remind = getCookie('reminded');
-			
-			if (remind == '1'){
-				var con =  document.getElementById('remindTxt');
-				con.className += 'hide';
-			}
-
-
-				
-			function OptClick (type,that){
-				var tags = document.getElementsByClassName("m-tab");
-				if (that == "tag1"){
-					tags[0].className += " active";
-					tags[1].className = " m-tab";
-				}else{
-					tags[1].className += " active";
-					tags[0].className = " m-tab" ;
-				}
-				getAllCourse(type, 0);
-			}
-
-			
-		
-
-		function success(txt){
-			alert(JSON.stringify(txt));
-		}
-
-		function fail(txt){
-			alert("fail"+JSON.stringify(txt));
-		}
-
-		//getAllCourse(10);
 	</script>
 </body>
 </html>

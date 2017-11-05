@@ -10,6 +10,10 @@ a{
 
 }
 
+.body{
+	position: relative;
+}
+
 ol li {
 	list-style: none;
 	float: left;
@@ -37,6 +41,8 @@ ol li {
 	margin-right: 60px;
 
 }
+
+
 
 .xP{
 	display: inline-block;
@@ -93,7 +99,7 @@ ol li {
 		font-size: 19px;
 }
 
-.m-navSubs{
+.m-navSubs, #watch{
 		margin-left: 30px;
 		display: inline-block;
 		width: 39px;
@@ -110,10 +116,18 @@ ol li {
 
 .subImg{
 	display: inline-block;
-	background: url(../imgs/x.png);
-	width: 9px;
-	height: 9px;
-	background-position: -14px 0px;
+	background: url(../imgs/C.png);
+	width: 13px;
+	height: 11px;
+	background-position: -40px 0px;
+}
+
+.subedImg{
+	display: inline-block;
+	background: url(../imgs/C.png);
+	width: 13px;
+	height: 11px;
+	background-position: -23px 0px;
 }
 
 .m-fenNum{
@@ -246,41 +260,10 @@ ol li {
 	color: #39a030;
 }
 
-.m-imgList  li{
-	float: left;
-	list-style: none;
-	margin-right: 3px;
-}
-
-	.m-imgList  li img{
-		float: left;
-		width: 320px;
-		height: 220px;
-		overflow: hidden;
-	}
 
 /*小于1205px*/
 
 @media screen and (max-width:1205px){
-.m-imgList{
-	margin-top: 60px;
-	width: 1205px;
-	height: 220px;
-	overflow: hidden;
-	/*position: relative;
-	left: -150px;*/
-	margin-bottom: 10px;
-	text-align: center;
-
-
-}
-
-
-.m-imgList  li, .m-imgList  li img{
-	display: inline-block;
-	padding-left: 3px;
-	box-sizing: border-box;
-}
 
 .courses{
 	width: 751px;
@@ -290,14 +273,7 @@ ol li {
 
 /*大于1205px*/
 @media screen and (min-width: 1205px){
-	.m-imgList{
-		margin-top: 60px;
-		width: 100%;
-		height: 220px;
-		overflow: hidden;
-		margin-bottom: 10px;
-}
-
+	
 .courses{
 	width: 1003px;
 
@@ -318,16 +294,18 @@ ol li {
 
 /*右侧*/
 .m-cRight{
+	display: inline-block;
 	width: 228px;
-	float: right;
+	position: absolute;
+	right: 1%;
+	top: 1134px;
 }
 
 .m-courses{
 	width: 1240px;
-	
-	text-align: center; 
-	/*居中*/
-	margin: 80px auto 0px;
+	position: absolute;
+	left: 5%;
+	top: 1134px;
 }
 
 
@@ -455,6 +433,7 @@ ol li {
 	line-height: 55px;
 }
 .unitHead span{
+	padding-left: 10px;
 	font-size: 16px;
 	font-weight: bold;
 }
@@ -464,6 +443,11 @@ ol li {
 	font-size: 14px;
 	color: rgb(102,102,102);
 }
+
+.m-unitVideo span{
+	padding: 5px 10px;
+}
+
 .uVideo{
 	cursor: pointer;
 	margin-top: 9px;
@@ -472,6 +456,10 @@ ol li {
 	height: 120px;
 	overflow: hidden;
 
+}
+
+.uVideo img {
+	padding-left: 15px;
 }
 
 .m-popularRank{
@@ -581,8 +569,8 @@ ol li {
 	background-color: rgb(44,51,57);
 	color: rgb(190,191,192);
 	text-align: center;
-	/*margin: 0 auto;*/
-	position: relative;
+	position: absolute;
+    bottom: -1100px;
 }
 
 .netEastInfo{
@@ -774,10 +762,60 @@ ol li {
 
 }
 
+
 .m-input{
 	width: 120px;
 	height: 25px;
 	border: 1px solid #ccc;
 	border-radius: 4px;
 	box-shadow: -1px -1px rgba(45,40,40,0.3);
+}
+
+#imgList,.m-showImg {
+	margin-top: 15px;
+	height: 243px;
+	width: 100%;
+	/*overflow: hidden;*/
+}
+
+#watch{
+	position: relative;
+	left: -87px;
+	width: 55px;
+	height: 22px;
+	visibility: hidden;
+
+
+}
+
+.m-showImg .imgs{
+	float: left;
+	overflow: hidden;
+	height: 243px;
+	line-height: 243px;
+	position: relative;
+
+}
+
+
+ .imgs li, .imgs li img{
+	
+	line-height: 243px;
+	height: 243px;
+	/*overflow: hidden;*/
+}
+
+.nav-active{
+	width: 50px;
+	height: 28px;
+	background-color: rgba(71,192,123, 0.4);
+}
+
+.cancle{
+	font-size: 13px;
+	color: rgba(220,220,220);
+}
+
+.cancle:hover{
+	color: rgb(89, 186,129);
 }
