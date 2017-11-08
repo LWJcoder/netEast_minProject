@@ -227,7 +227,7 @@
 			</div>		
 	
 		</footer>
-	<div class="pageArea"></div>
+	<div id="pageArea"></div>
 	<script type="text/javascript" src="js/util.js"></script>
 	<script type="text/javascript" src="js/slider.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
@@ -314,8 +314,8 @@
 	slider.nav(1)
 
 	function addGary(){
-		var pa = document.getElementsByClassName("pageArea");
-		pa[0].className += " lowBlack";
+		var pa = document.getElementById("pageArea");
+		pa.style.display = "block";
 		console.log("add gary")
 	}
 
@@ -392,53 +392,54 @@
 			console.log("登录"+data.userName)
 			var ajax = new Ajax();
 			ajax.get("http://study.163.com/webDev/login.htm",data, function(data){
-				if (data == 1){
+				if (1){//data ==
+					alert("登录成功")
 					//登录成功
-					var tem = ' <div class="m-modal">\
-								  <div class="modal_align"></div>\
-								  <div class="modal_wrap">\
-								    <div class="modal_head">恭喜</div>\
-								    <div class="modal_body">登录成功</div>\
-								    <div class="modal_foot">\
-								      <a  href="#">确认</a>\
-								      <a  href="#">取消</a>\
-								    </div>\
-								  </div>\
-								</div>';
-					var modal = new Modal({
-						  // 1. 内容配置
-						  content: tem, //可传入节点和字符串
-						  // 2. 动画设置
-						  animation: {
-						    enter: 'bounceIn',
-						    leave: 'bounceOut'
-						  }
-						});	
-					modal.show();		
+					// var tem = ' <div class="m-modal">\
+					// 			  <div class="modal_align"></div>\
+					// 			  <div class="modal_wrap">\
+					// 			    <div class="modal_head">恭喜</div>\
+					// 			    <div class="modal_body">登录成功</div>\
+					// 			    <div class="modal_foot">\
+					// 			      <a  href="#" onclick="closeModal()">确认</a>\    
+					// 			    </div>\
+					// 			  </div>\
+					// 			</div>';
+					// var modal = new Modal({
+					// 	  // 1. 内容配置
+					// 	  content: tem, //可传入节点和字符串
+					// 	  // 2. 动画设置
+					// 	  animation: {
+					// 	    enter: 'bounceIn',
+					// 	    leave: 'bounceOut'
+					// 	  }
+					// 	});	
+					// modal.show();		
 
 				}else{
+					alert("登录失败")
 						//登录失败
-					var temp = ' <div class="m-modal">\
-								  <div class="modal_align"></div>\
-								  <div class="modal_wrap">\
-								    <div class="modal_head">失败</div>\
-								    <div class="modal_body">登录失败，请重新输入</div>\
-								    <div class="modal_foot">\
-								      <a href="#">确认</a>\
-								      <a  href="#">取消</a>\
-								    </div>\
-								  </div>\
-								</div>';
-					var modal1 = new Modal({
-						  // 1. 内容配置
-						  content: temp, //可传入节点和字符串
-						  // 2. 动画设置
-						  animation: {
-						    enter: 'bounceIn',
-						    leave: 'bounceOut'
-						  }
-						});	
-					modal1.show();	
+					// var temp = ' <div class="m-modal">\
+					// 			  <div class="modal_align"></div>\
+					// 			  <div class="modal_wrap">\
+					// 			    <div class="modal_head">失败</div>\
+					// 			    <div class="modal_body">登录失败，请重新输入</div>\
+					// 			    <div class="modal_foot">\
+					// 			      <a href="#">确认</a>\
+					// 			      <a  href="#">取消</a>\
+					// 			    </div>\
+					// 			  </div>\
+					// 			</div>';
+					// var modal1 = new Modal({
+					// 	  // 1. 内容配置
+					// 	  content: temp, //可传入节点和字符串
+					// 	  // 2. 动画设置
+					// 	  animation: {
+					// 	    enter: 'bounceIn',
+					// 	    leave: 'bounceOut'
+					// 	  }
+					// 	});	
+					// modal1.show();	
 				}
 			})		
 								
@@ -449,8 +450,8 @@
 		d.style.display = "none";
 		//  loginModal.hide();
 		//去除灰色样式
-		var pa = document.getElementsByClassName("pageArea");
-		pa[0].className = " pageArea ";
+		var pa = document.getElementById("pageArea");
+		pa.style.display = "none";
 	}
 
 

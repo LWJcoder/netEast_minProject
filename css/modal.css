@@ -23,21 +23,20 @@
 	right: -40px;
 }
 
-.lowBlack {
+
+
+#pageArea{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	background-color: rgb(80,80,80);
 	-moz-opacity: 0.6;
 	filter:  alpha(opacity=60);
 	opacity: 0.6;
 	-webkit-opacity: 0.6;
-}
-
-.pageArea{
-	position: fixed;
-	top: 0;
-	left: 0;
 	display: none;
-	width: 100%;
-	height: 100%;
 }
 
 .show{
